@@ -7,7 +7,9 @@ If the timestamp happened after midnight, the output will be either "X hours ago
 If it happened before midnight, expect "A days ago", "B weeks ago", "C months ago" or " D years ago".
 
 Normal behaviour (all timestamps in UTC):
+
     1. The event happened yesterday at 23:15. Now it is the following day and it is 1:10 in the morning. Program will return 'Yesterday' even though the event happened less than 2 hours ago.
+    
     2. The event happened today at 2:40 in the morning, now it is 14:10. Program will return '11 hours ago' (It happened today).
 
 _________________________________________________________________________________________________________________________

@@ -77,7 +77,6 @@ function converSQLtoAgoFormat(a_sqlTimestamp) {
         //months are between 0 and 11 -> subtract 1
         TIME.utcTime = new Date(TIME.dateTimeObject.getTime() + TIME.timezoneOffset);
         //local time is the time returned by `new Date();` (everywhere except on Mozilla)
-        TIME.localTime = new Date();
         TIME.midnightLocalTime = new Date(
             TIME.localTime.getFullYear(),
             TIME.localTime.getMonth(),

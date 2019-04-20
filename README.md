@@ -19,7 +19,7 @@ For loops have been replaced by modulos(%), the process should now be quicker an
 
 OOP was replaced by functional programming (from a Class to standalone functions). This gives better compatibility with older browsers when `let` and `const` are replaced by `var`.
 
-There are still aproximations (month == 30days, year == 365days), therefore the program is 100% correct. By attempting to fix that, the program would become a lot longer and less readable. That is the reason I decided not to fix that. Feel free to add that yourself and to send a merge request so everybody can benifit from that.
+There are still aproximations (month == 30days, year == 365days), therefore the program is not 100% correct. By attempting to fix that, the program would become a lot longer and less readable. That is the reason I decided not to fix that. Feel free to add that yourself and to send a merge request so everybody can benifit from that.
 
 Refer to the example if you have difficulties setting it up.
 

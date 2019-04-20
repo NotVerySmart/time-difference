@@ -44,7 +44,7 @@ function evaluateYMWD(timeDiff) {
 }
 
 function converSQLtoAgoFormat(a_sqlTimestamp) {
-    //utc timestamp is expected as an input 'YYYY-MM-DD HH:MM:SS'
+    // UTC timestamp is expected as an input 'YYYY-MM-DD HH:MM:SS'
     const TIME = {
         dateTimeObject: new Date(),
         timezoneOffset: 0,
@@ -57,10 +57,10 @@ function converSQLtoAgoFormat(a_sqlTimestamp) {
 
     TIME.timezoneOffset = TIME.dateTimeObject.getTimezoneOffset() * 60000;
 
-    //had some complications with UTC (different behaviour) on Mozilla
-    //Mozilla auto-converts the string given via `new Date()` to UTC time
-    //Chrome and Safari don't; they keep it in local time
-    //tested and working on Safari, Mozilla and Chrome browsers
+    // had some complications with UTC (different behaviour) on Mozilla
+    // Mozilla auto-converts the string given via `new Date()` to UTC time
+    // Chrome and Safari don't; they keep it in local time
+    // tested and working on Safari, Mozilla and Chrome browsers
     if (navigator.userAgent.search("Firefox") >= 0) {
         //utc time is the time returned by `new Date();` (on Mozilla)
         TIME.localTime = new Date(TIME.dateTimeObject.getTime() - TIME.timezoneOffset);
@@ -71,12 +71,12 @@ function converSQLtoAgoFormat(a_sqlTimestamp) {
                 TIME.localTime.getDate())
             .getTime() - TIME.timezoneOffset);
     } else {
-        //need to convert sql timestamp to Date js object
+        // need to convert sql timestamp to Date js object
         const t = String(a_sqlTimestamp).split(/[- :]/);
         TIME.timestamp = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
-        //months are between 0 and 11 -> subtract 1
+        // months are between 0 and 11 -> subtract 1
         TIME.utcTime = new Date(TIME.dateTimeObject.getTime() + TIME.timezoneOffset);
-        //local time is the time returned by `new Date();` (everywhere except on Mozilla)
+        // local time is the time returned by `new Date();` (everywhere except on Mozilla)
         TIME.midnightLocalTime = new Date(
             TIME.localTime.getFullYear(),
             TIME.localTime.getMonth(),
